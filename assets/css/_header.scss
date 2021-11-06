@@ -1,0 +1,205 @@
+.header {
+  max-width: 100%;
+  position: relative;
+
+  &-top {
+    display: none;
+    padding: 0 2rem;
+    background-color: $black-color-1;
+    border-bottom: 1px solid $yellow-color;
+    transition: all 0.5s ease;
+    @include mq_min_768 {
+      display: block;
+      padding: 0 4rem;
+    }
+
+    .header-top-container {
+      max-width: 1170px;
+      margin: 0 auto;
+      @include flexbox(flex, space-between, center, nowrap);
+      color: $white-color;
+      background-color: $black-color-1;
+      padding: 1rem 0;
+      @include font(1.6rem, 500, normal);
+      .time-hotline {
+        @include flexbox(flex, space-between, center, nowrap);
+        .time {
+          @include flexbox(flex, space-between, center, nowrap);
+          margin-right: 4rem;
+          img {
+            margin-right: 1rem;
+          }
+        }
+        .hotline {
+          @include flexbox(flex, space-between, center, nowrap);
+          img {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  &-logo-desktop {
+    display: none;
+    position: absolute;
+    top: 2.5rem;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    @include mq_min_1024 {
+      display: block;
+      a {
+        width: 10rem;
+        height: 10rem;
+        background-color: $black-color-2;
+        border: 1px solid $yellow-color;
+        transform: rotate(45deg);
+        @include flexbox(flex, center, center, nowrap);
+        @include mq_min_1200 {
+          width: 12rem;
+          height: 12rem;
+        }
+        img {
+          display: block;
+          max-width: 6rem;
+          transform: rotate(-45deg);
+          @include mq_min_1200 {
+            max-width: 8rem;
+          }
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    background-color: $black-color-2;
+    &-container {
+      padding: 0.5rem 2rem;
+      max-width: 1170px;
+      margin: 0 auto;
+      @include flexbox(flex, space-between, center, nowrap);
+      @include mq_min_768 {
+        padding: 0 4rem;
+      }
+      @include mq_min_1200 {
+        padding: 0;
+      }
+      .menu-mobile {
+        @include mq_min_1024 {
+          display: none;
+        }
+      }
+      .logo-mobile {
+        a {
+          max-width: 6rem;
+        }
+        @include mq_min_1024 {
+          display: none;
+        }
+      }
+      .header-bottom-menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9;
+        transition: all 0.3s ease;
+        ul {
+          width: 60vw;
+          height: 100vh;
+          background-color: $black-color-2;
+          @include mq_min_768 {
+            width: 40vw;
+          }
+          li {
+            a {
+              color: $white-color;
+              font-size: 1.2rem;
+              padding: 1.5rem 2rem;
+              border-bottom: 1px solid $yellow-color;
+              @include mq_min_1024 {
+                font-size: 1.4rem;
+                border: 0;
+                padding: 0;
+              }
+            }
+          }
+        }
+        @include mq_min_1024 {
+          position: static;
+          opacity: 1 !important;
+          margin-left: 0 !important;
+          z-index: 0 !important;
+          display: block;
+          color: $yellow-color;
+          ul {
+            width: inherit;
+            height: inherit;
+            @include flexbox(flex, space-between, center, nowrap);
+            li {
+              padding: 2.5rem 2rem;
+              @include mq_min_1200 {
+                padding: 2.5rem 3rem;
+              }
+              a {
+                font-size: 1.4rem;
+                color: $yellow-color;
+                text-decoration: none;
+                &:hover {
+                  color: $white-color;
+                }
+                @include mq_min_1200 {
+                  font-size: 1.6rem;
+                }
+              }
+              &:first-child {
+                padding-left: 0;
+              }
+              &:nth-child(4) {
+                margin-left: 28rem;
+                @include mq_min_1200 {
+                  margin-left: 30rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.fixed-nav {
+  position: fixed;
+  z-index: 5;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  // bottom: 0px;
+  .header-logo-desktop {
+    @include mq_min_1200 {
+      a {
+        transition: all 0.3s ease;
+        width: 9.5rem;
+        height: 9.5rem;
+        img {
+          max-width: 7rem;
+        }
+      }
+    }
+  }
+  .header-bottom-container {
+    .header-bottom-menu {
+      @include mq_min_1200 {
+        ul {
+          li {
+            transition: all 0.3s ease;
+            padding: 2rem 3rem;
+            &:first-child {
+              padding-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
