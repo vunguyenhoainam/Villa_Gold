@@ -79,6 +79,7 @@ body {
 
 body .wrapper {
   margin: 0 auto;
+  overflow: hidden;
 }
 
 body .wrapper .effect-page {
@@ -483,6 +484,35 @@ a {
 }
 
 .body .form-main {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.body .form-main .form-bg {
+  position: absolute;
+  top: 10rem;
+  max-width: 15rem;
+}
+
+.body .form-main .form-bg-left {
+  left: 0;
+}
+
+.body .form-main .form-bg-right {
+  right: 0;
+}
+
+.body .form-main .form-main-container {
   max-width: 1170px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -491,7 +521,7 @@ a {
 }
 
 @media screen and (min-width: 768px) {
-  .body .form-main {
+  .body .form-main .form-main-container {
     margin: 4rem auto;
     padding: 0 4rem;
     display: -webkit-box;
@@ -509,7 +539,7 @@ a {
 }
 
 @media screen and (min-width: 1024px) {
-  .body .form-main {
+  .body .form-main .form-main-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -525,7 +555,7 @@ a {
 }
 
 @media screen and (min-width: 1200px) {
-  .body .form-main {
+  .body .form-main .form-main-container {
     padding: 0;
   }
 }
@@ -999,9 +1029,13 @@ a {
 }
 
 .body .eternal {
-  max-width: 1170px;
-  margin: 4rem auto;
+  max-width: 100%;
   padding: 0 2rem;
+  margin: 4rem auto;
+  background-image: url("../images/Villa-Gold-bg-middle.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 @media screen and (min-width: 768px) {
@@ -1017,10 +1051,27 @@ a {
 }
 
 .body .eternal .eternal-content {
-  margin-top: 4rem;
+  max-width: 1170px;
+  margin: 4rem auto 0 auto;
 }
 
 @media screen and (min-width: 768px) {
+  .body .eternal .eternal-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .body .eternal .eternal-content {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1039,6 +1090,13 @@ a {
 @media screen and (min-width: 768px) {
   .body .eternal .eternal-content .enternal-content-left {
     width: calc((100% / 2) - 1rem);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .body .eternal .eternal-content .enternal-content-left {
+    margin-top: auto;
+    margin-bottom: 5rem;
   }
 }
 
@@ -1071,6 +1129,13 @@ a {
 @media screen and (min-width: 768px) {
   .body .eternal .eternal-content .enternal-content-right {
     width: calc((100% / 2) - 1rem);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .body .eternal .eternal-content .enternal-content-right {
+    width: 100%;
+    margin-right: -60rem;
   }
 }
 
@@ -1413,6 +1478,7 @@ a {
   border-radius: 5px;
   padding: 2.5rem 2rem;
   margin-top: 8rem;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 1024px) {
@@ -1527,25 +1593,10 @@ a {
 }
 
 .body .policy {
-  max-width: 1170px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-}
-
-@media screen and (min-width: 768px) {
-  .body .policy {
-    padding: 0 4rem;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .body .policy {
-    padding: 0;
-  }
-}
-
-.body .policy .policy-container {
   position: relative;
+  max-width: 1170px;
+  margin: 4rem 2rem;
+  padding: 2.5rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1560,11 +1611,14 @@ a {
   background-color: #17130d;
   border: 1px solid #ffdc73;
   border-radius: 5px;
-  padding: 2.5rem 2rem;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
-  .body .policy .policy-container::before {
+  .body .policy {
+    margin: 0 4rem;
+  }
+  .body .policy::before {
     content: url("../images/Villa-Gold-icon-6.svg");
     position: absolute;
     z-index: 3;
@@ -1573,7 +1627,7 @@ a {
     -webkit-transform: translateY(-50%) rotate(-90deg);
             transform: translateY(-50%) rotate(-90deg);
   }
-  .body .policy .policy-container::after {
+  .body .policy::after {
     content: url("../images/Villa-Gold-icon-6.svg");
     position: absolute;
     z-index: 3;
@@ -1584,6 +1638,12 @@ a {
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .body .policy {
+    margin: 4rem auto;
+  }
+}
+
 .body .policy .policy-container .policy-item {
   width: calc((100% / 2) - 0.5rem);
   font-size: 1.2rem;
@@ -1591,13 +1651,8 @@ a {
   text-align: center;
 }
 
-.body .policy .policy-container .policy-item:nth-child(even) {
-  display: none;
-}
-
 @media screen and (min-width: 768px) {
   .body .policy .policy-container .policy-item {
-    display: block !important;
     width: calc((100% / 4) - 1rem);
   }
 }
@@ -1671,7 +1726,8 @@ a {
   margin-top: 4rem;
 }
 
-.body .video-news .video-container .video-content .video-large video {
+.body .video-news .video-container .video-content .video-large {
+  overflow: hidden;
   border: 1px solid #ffdc73;
   border-radius: 5px;
 }
@@ -1698,6 +1754,7 @@ a {
   .body .video-news .video-container .video-content .list-video .video-child {
     margin-top: 1rem;
     width: calc((100% / 5) - 1rem);
+    cursor: pointer;
   }
   .body .video-news .video-container .video-content .list-video .video-child img {
     border-radius: 5px;
@@ -1852,6 +1909,14 @@ a {
 }
 
 .footer .footer-middle {
+  background-image: url("../images/Villa-Gold-bg-footer.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.footer .footer-middle .footer-middle-container {
   max-width: 1170px;
   margin: 0 auto;
   display: -webkit-box;
@@ -1868,101 +1933,101 @@ a {
 }
 
 @media screen and (min-width: 1024px) {
-  .footer .footer-middle {
+  .footer .footer-middle .footer-middle-container {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
     padding: 6rem 0;
   }
 }
 
-.footer .footer-middle .title {
+.footer .footer-middle .footer-middle-container .title {
   color: #ffdc73;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #8c8c8c;
 }
 
-.footer .footer-middle .title span {
+.footer .footer-middle .footer-middle-container .title span {
   display: block;
   color: #ffffff;
 }
 
-.footer .footer-middle .footer-logo {
+.footer .footer-middle .footer-middle-container .footer-logo {
   width: 100%;
   padding: 3rem 0;
   text-align: center;
 }
 
 @media screen and (min-width: 1024px) {
-  .footer .footer-middle .footer-logo {
+  .footer .footer-middle .footer-middle-container .footer-logo {
     width: calc((100% / 4) - 2rem);
     padding: 0;
   }
 }
 
-.footer .footer-middle .footer-logo .footer-img {
+.footer .footer-middle .footer-middle-container .footer-logo .footer-img {
   width: 15rem;
   margin: 0 auto;
 }
 
-.footer .footer-middle .footer-logo span {
+.footer .footer-middle .footer-middle-container .footer-logo span {
   display: inline-block;
   padding-top: 1rem;
 }
 
-.footer .footer-middle .footer-logo p {
+.footer .footer-middle .footer-middle-container .footer-logo p {
   color: #ffffff;
   padding-top: 1rem;
 }
 
-.footer .footer-middle .company-info {
+.footer .footer-middle .footer-middle-container .company-info {
   width: calc((100% / 2) - 1rem);
   font-size: 1.2rem;
 }
 
 @media screen and (min-width: 1024px) {
-  .footer .footer-middle .company-info {
+  .footer .footer-middle .footer-middle-container .company-info {
     width: calc((100% / 4) - 2rem);
   }
 }
 
-.footer .footer-middle .company-info p {
+.footer .footer-middle .footer-middle-container .company-info p {
   color: #ffffff;
   padding: 0.5rem 0;
 }
 
-.footer .footer-middle .company-info p span {
+.footer .footer-middle .footer-middle-container .company-info p span {
   display: block;
   color: #ffdc73;
 }
 
 @media screen and (min-width: 1024px) {
-  .footer .footer-middle .company-info p span {
+  .footer .footer-middle .footer-middle-container .company-info p span {
     display: inline-block;
   }
 }
 
-.footer .footer-middle .support {
+.footer .footer-middle .footer-middle-container .support {
   width: calc((100% / 2) - 1rem);
   font-size: 1.2rem;
 }
 
 @media screen and (min-width: 1024px) {
-  .footer .footer-middle .support {
+  .footer .footer-middle .footer-middle-container .support {
     width: calc((100% / 4) - 2rem);
   }
 }
 
-.footer .footer-middle .support p {
+.footer .footer-middle .footer-middle-container .support p {
   color: #ffffff;
   padding: 0.5rem 0;
 }
 
-.footer .footer-middle .support span {
+.footer .footer-middle .footer-middle-container .support span {
   display: block;
   color: #ffffff;
 }
 
-.footer .footer-middle .support .social {
+.footer .footer-middle .footer-middle-container .support .social {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1977,56 +2042,95 @@ a {
   margin-top: 1rem;
 }
 
-.footer .footer-middle .support .social a {
+.footer .footer-middle .footer-middle-container .support .social a {
   margin-right: 2rem;
 }
 
-.footer .footer-middle .support .social a i {
+.footer .footer-middle .footer-middle-container .support .social a i {
   color: #ffffff;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   font-size: 2rem;
 }
 
-.footer .footer-middle .support .social a i:hover {
+.footer .footer-middle .footer-middle-container .support .social a i:hover {
   color: #ffdc73;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
-.footer .footer-middle .map {
+.footer .footer-middle .footer-middle-container .map {
   width: 100%;
   margin-top: 2rem;
   font-size: 1.2rem;
 }
 
 @media screen and (min-width: 1024px) {
-  .footer .footer-middle .map {
+  .footer .footer-middle .footer-middle-container .map {
     width: calc((100% / 4) - 2rem);
     margin: 0;
   }
 }
 
-.footer .footer-middle .map span {
+.footer .footer-middle .footer-middle-container .map span {
   display: block;
   color: #ffffff;
 }
 
-.footer .footer-middle .map .map-details {
+.footer .footer-middle .footer-middle-container .map .map-details {
   margin-top: 1rem;
   width: 100%;
   height: 18rem;
 }
 
 @media screen and (min-width: 1024px) {
-  .footer .footer-middle .map .map-details {
+  .footer .footer-middle .footer-middle-container .map .map-details {
     height: 12rem;
   }
 }
 
-.footer .footer-middle .map .map-details iframe {
+.footer .footer-middle .footer-middle-container .map .map-details iframe {
   width: 100%;
   height: 100%;
+}
+
+.footer .list-shortcut {
+  display: none;
+  position: fixed;
+  bottom: 10rem;
+  right: 2rem;
+  z-index: 9;
+}
+
+@media screen and (min-width: 768px) {
+  .footer .list-shortcut {
+    display: block;
+  }
+}
+
+.footer .list-shortcut .shortcut-item {
+  margin-top: 2rem;
+  width: 5.5rem;
+  height: 5.5rem;
+  background-image: url("../images/Villa-Gold-icon-border-shortcut.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.footer .list-shortcut .shortcut-item img {
+  width: 2.5rem;
 }
 
 .footer .footer-bottom {

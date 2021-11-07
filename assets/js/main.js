@@ -27,7 +27,6 @@ $(document).ready(function () {
 });
 
 // Handle-Header
-
 document.onscroll = () => {
   var location = window.scrollY;
   if (location > 50) {
@@ -37,10 +36,59 @@ document.onscroll = () => {
   }
 };
 
-// Slide-Main
-var swiper = new Swiper(".slide-main", {
+// Handle-Slide-Main
+new Swiper(".slide-main", {
   autoplay: {
     delay: 20000,
   },
   loop: true,
+});
+
+// Handle-Customer
+new Swiper(".customer-feedback", {
+  slidesPerView: 1,
+  spaceBetween: 40,
+  autoplay: {
+    delay: 5000,
+  },
+  loop: true,
+  navigation: {
+    nextEl: ".btn-right",
+    prevEl: ".btn-left",
+  },
+});
+
+// Handle-Policy
+new Swiper(".policy", {
+  slidesPerView: 2,
+  autoplay: {
+    delay: 5000,
+  },
+  loop: true,
+  breakpoints: {
+    575: {
+      slidesPerView: 4,
+      loop: false,
+    },
+  },
+});
+
+// Handle-List-Video
+var swiper = new Swiper(".list-video", {
+  spaceBetween: 10,
+  slidesPerView: 5,
+  freeMode: true,
+  watchSlidesProgress: true,
+});
+var swiper2 = new Swiper(".video-large", {
+  spaceBetween: 20,
+  thumbs: {
+    swiper: swiper,
+  },
+});
+
+// Back-top
+$(".backtop").click(function (e) {
+  e.preventDefault();
+  $("html").animate({ scrollTop: 0 }, 1200);
 });

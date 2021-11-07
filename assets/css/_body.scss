@@ -34,21 +34,36 @@
 
   // Form-main
   .form-main {
-    max-width: 1170px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    font-size: 1.4rem;
-    color: $yellow-color;
-    @include mq_min_768 {
-      margin: 4rem auto;
-      padding: 0 4rem;
-      @include flexbox(flex, space-between, center, wrap);
+    position: relative;
+    @include flexbox(flex, center, center, nowrap);
+    .form-bg {
+      position: absolute;
+      top: 10rem;
+      max-width: 15rem;
     }
-    @include mq_min_1024 {
-      @include flexbox(flex, space-between, flex-start, nowrap);
+    .form-bg-left {
+      left: 0;
     }
-    @include mq_min_1200 {
-      padding: 0;
+    .form-bg-right {
+      right: 0;
+    }
+    .form-main-container {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      font-size: 1.4rem;
+      color: $yellow-color;
+      @include mq_min_768 {
+        margin: 4rem auto;
+        padding: 0 4rem;
+        @include flexbox(flex, space-between, center, wrap);
+      }
+      @include mq_min_1024 {
+        @include flexbox(flex, space-between, flex-start, nowrap);
+      }
+      @include mq_min_1200 {
+        padding: 0;
+      }
     }
 
     .form-1 {
@@ -403,9 +418,13 @@
 
   // Eternal
   .eternal {
-    max-width: 1170px;
-    margin: 4rem auto;
+    max-width: 100%;
     padding: 0 2rem;
+    margin: 4rem auto;
+    background-image: url("../images/Villa-Gold-bg-middle.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
     @include mq_min_768 {
       padding: 0 4rem;
     }
@@ -414,13 +433,21 @@
     }
 
     .eternal-content {
-      margin-top: 4rem;
+      max-width: 1170px;
+      margin: 4rem auto 0 auto;
       @include mq_min_768 {
+        @include flexbox(flex, space-between, center, nowrap);
+      }
+      @include mq_min_1024 {
         @include flexbox(flex, space-between, flex-start, nowrap);
       }
       .enternal-content-left {
         @include mq_min_768 {
           width: calc((100% / 2) - 1rem);
+        }
+        @include mq_min_1200 {
+          margin-top: auto;
+          margin-bottom: 5rem;
         }
         h2 {
           text-align: center;
@@ -444,18 +471,11 @@
       .enternal-content-right {
         @include mq_min_768 {
           width: calc((100% / 2) - 1rem);
-          // position: relative;
         }
-        // img {
-        //   @include mq_min_768 {
-        //     position: absolute;
-        //     top: 0;
-        //     right: 0;
-        //   }
-        //   @include mq_min_1200 {
-        //     right: -15rem;
-        //   }
-        // }
+        @include mq_min_1200 {
+          width: 100%;
+          margin-right: -60rem;
+        }
       }
     }
   }
@@ -646,9 +666,7 @@
       border-radius: 5px;
       padding: 2.5rem 2rem;
       margin-top: 8rem;
-      // @include mq_min_768 {
-      //   display: inline-block;
-      // }
+      overflow: hidden;
       @include mq_min_1024 {
         width: calc((100% / 2) - 1rem);
         margin: 0;
@@ -729,53 +747,46 @@
 
   // Policy
   .policy {
+    position: relative;
     max-width: 1170px;
-    margin: 4rem auto;
-    padding: 0 2rem;
-
+    margin: 4rem 2rem;
+    padding: 2.5rem 0;
+    @include flexbox(flex, space-between, flex-start, nowrap);
+    background-color: $black-color-1;
+    border: 1px solid $yellow-color;
+    border-radius: 5px;
+    overflow: hidden;
     @include mq_min_768 {
-      padding: 0 4rem;
+      margin: 0 4rem;
+      // overflow: visible;
+      &::before {
+        content: url("../images/Villa-Gold-icon-6.svg");
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: -5rem;
+        transform: translateY(-50%) rotate(-90deg);
+      }
+      &::after {
+        content: url("../images/Villa-Gold-icon-6.svg");
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        right: -5rem;
+        transform: translateY(-50%) rotate(90deg);
+      }
     }
     @include mq_min_1200 {
-      padding: 0;
+      margin: 4rem auto;
     }
 
     .policy-container {
-      position: relative;
-      @include flexbox(flex, space-between, flex-start, nowrap);
-      background-color: $black-color-1;
-      border: 1px solid $yellow-color;
-      border-radius: 5px;
-      padding: 2.5rem 2rem;
-      @include mq_min_768 {
-        &::before {
-          content: url("../images/Villa-Gold-icon-6.svg");
-          position: absolute;
-          z-index: 3;
-          top: 50%;
-          left: -5rem;
-          transform: translateY(-50%) rotate(-90deg);
-        }
-        &::after {
-          content: url("../images/Villa-Gold-icon-6.svg");
-          position: absolute;
-          z-index: 3;
-          top: 50%;
-          right: -5rem;
-          transform: translateY(-50%) rotate(90deg);
-        }
-      }
-
       .policy-item {
         width: calc((100% / 2) - 0.5rem);
         font-size: 1.2rem;
         color: $yellow-color;
         text-align: center;
-        &:nth-child(even) {
-          display: none;
-        }
         @include mq_min_768 {
-          display: block !important;
           width: calc((100% / 4) - 1rem);
         }
         img {
@@ -827,10 +838,9 @@
       .video-content {
         margin-top: 4rem;
         .video-large {
-          video {
-            border: 1px solid $yellow-color;
-            border-radius: 5px;
-          }
+          overflow: hidden;
+          border: 1px solid $yellow-color;
+          border-radius: 5px;
         }
         .list-video {
           display: none;
@@ -840,6 +850,7 @@
             .video-child {
               margin-top: 1rem;
               width: calc((100% / 5) - 1rem);
+              cursor: pointer;
               img {
                 border-radius: 5px;
                 border: 1px solid $yellow-color;
